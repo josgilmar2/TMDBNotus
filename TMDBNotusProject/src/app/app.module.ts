@@ -48,6 +48,10 @@ import { NotificationDropdownComponent } from "./components/dropdowns/notificati
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
 
+import { HttpClientModule } from "@angular/common/http";
+import { OneMovieComponent } from './components/one-movie/one-movie.component';
+import { PopularMoviesListComponent } from './views/admin/popular-movies-list/popular-movies-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,8 +88,10 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    OneMovieComponent,
+    PopularMoviesListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
