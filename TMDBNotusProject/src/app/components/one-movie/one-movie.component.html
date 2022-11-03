@@ -1,1 +1,23 @@
-<p>one-movie works!</p>
+<div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg" style="margin-right: 10px; margin-bottom: 10px;">
+  <div class="flex-auto p-4 flex-wrap">
+    <div class="flex flex-wrap">
+      <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+        <h2 class="text-blueGray-400 uppercase font-bold text-xs">
+          {{popularMovie.original_title}}
+        </h2>
+        <span class="font-semibold text-xl text-blueGray-700">
+          {{popularMovie.title}}
+        </span>
+      </div>
+      <div class="relative w-auto pl-4 flex-initial">
+        <div
+          class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full" style="background-color: #081C22;">
+          <span style="font-weight: bold;">{{popularMovie.vote_average * 10}}%</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img [src]="showMoviesImg()" alt="" width="25%">
+    </div>
+  </div>
+</div>
