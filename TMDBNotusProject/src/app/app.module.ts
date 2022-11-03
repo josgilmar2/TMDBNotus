@@ -47,13 +47,13 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-
 import { HttpClientModule } from "@angular/common/http";
 import { OneMovieComponent } from './components/one-movie/one-movie.component';
 import { PopularMoviesListComponent } from './views/admin/popular-movies-list/popular-movies-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialImportsModule } from "./modules/material-imports.module";
 import { OnePersonComponent } from './components/one-person/one-person.component';
+import { PersonListComponent } from './views/admin/person-list/person-list.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +94,7 @@ import { OnePersonComponent } from './components/one-person/one-person.component
     OneMovieComponent,
     PopularMoviesListComponent,
     OnePersonComponent,
+    PersonListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, MaterialImportsModule],
   providers: [],
