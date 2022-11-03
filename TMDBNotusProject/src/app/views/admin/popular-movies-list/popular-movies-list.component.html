@@ -1,1 +1,23 @@
-<p>popular-movies-list works!</p>
+<!-- <mat-toolbar>
+  <h1>
+    <span>Películas Populares</span>
+  </h1>
+  <span class="example-spacer"></span>
+  <button (click)="pageBefore()" style="height: 24px;"><mat-icon>arrow_back</mat-icon></button>
+  <span style="margin-left: 10px; margin-right: 10px;">{{actualPage}} | {{numTotalPages}}</span>
+  <button (click)="pageAfter()" style="height: 24px;"><mat-icon>arrow_forward</mat-icon></button>
+</mat-toolbar>
+<app-one-movie *ngFor="let movie of popularMoviesList" [popularMovie]="movie" [pages]="actualPage"></app-one-movie> -->
+
+<div class="flex justify-center mt-2">
+  <button (click)="pageBefore()" style="height: 24px;">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span style="margin-left: 10px; margin-right: 10px;">{{actualPage}} | {{numTotalPages}}</span>
+  <button (click)="pageAfter()" style="height: 24px;">
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+</div>
+<div class="flex flex-wrap justify-around mt-1">
+  <app-one-movie *ngFor="let movie of popularMoviesList" [popularMovie]="movie" [pages]="actualPage"></app-one-movie>
+</div>

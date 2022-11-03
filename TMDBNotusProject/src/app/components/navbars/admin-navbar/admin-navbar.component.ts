@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CreateSessionDto } from "src/app/models/dto/create-session.dto";
 import { AuthService } from "src/app/services/auth.service";
-
 @Component({
   selector: "app-admin-navbar",
   templateUrl: "./admin-navbar.component.html",

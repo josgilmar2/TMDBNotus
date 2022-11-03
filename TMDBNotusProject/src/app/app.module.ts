@@ -50,6 +50,8 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
 import { HttpClientModule } from "@angular/common/http";
 import { OneMovieComponent } from './components/one-movie/one-movie.component';
 import { PopularMoviesListComponent } from './views/admin/popular-movies-list/popular-movies-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialImportsModule } from "./modules/material-imports.module";
 import { OnePersonComponent } from './components/one-person/one-person.component';
 import { PersonListComponent } from './views/admin/person-list/person-list.component';
 
@@ -94,7 +96,7 @@ import { PersonListComponent } from './views/admin/person-list/person-list.compo
     OnePersonComponent,
     PersonListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, MaterialImportsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
