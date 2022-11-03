@@ -51,6 +51,7 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
 import { HttpClientModule } from "@angular/common/http";
 import { OneMovieComponent } from './components/one-movie/one-movie.component';
 import { PopularMoviesListComponent } from './views/admin/popular-movies-list/popular-movies-list.component';
+import { OnePersonComponent } from './components/one-person/one-person.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { PopularMoviesListComponent } from './views/admin/popular-movies-list/po
     ProfileComponent,
     OneMovieComponent,
     PopularMoviesListComponent,
+    OnePersonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
