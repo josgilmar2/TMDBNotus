@@ -36,7 +36,8 @@ export class UserDropdownComponent implements AfterViewInit {
 
           this.authService.getInfo().subscribe((resp) => {
             this.user = resp.username;
-            this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/${resp.avatar.tmdb.avatar_path}`;
+            // this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/${resp.avatar.tmdb.avatar_path}`;
+            this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/q1f7PKhmaA1dhbnj9gHoE05ImB9.jpg`
 
           });
   
@@ -65,7 +66,7 @@ export class UserDropdownComponent implements AfterViewInit {
   requestToken() {
     this.authService.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin/person-list`;
     });
   }
   ngAfterViewInit() {
