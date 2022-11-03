@@ -1,8 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "4e3eea2b-928e-4322-be62-984fdc444c28"
-    "analytics": false
+    "analytics": "6981d803-0cbb-4b93-85f9-818c31c12fd3"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -31,7 +30,7 @@
             "styles": [
               "src/styles.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "src/assets/styles/tailwind.css",
+              "src/assets/styles/tailwind.css"
             ],
             "scripts": []
           },
