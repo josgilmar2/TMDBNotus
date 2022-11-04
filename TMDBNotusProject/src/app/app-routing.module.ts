@@ -51,7 +51,8 @@ const routes: Routes = [
   // no layout views
   { path: "profile", component: ProfileComponent },
   { path: "landing", component: LandingComponent },
-  { path: "movie-details", component: MoviesDetailsComponent},
+  // { path: "movie-details", component: MoviesDetailsComponent},
+  { path: "movie-details/:id", component: MoviesDetailsComponent},
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];
