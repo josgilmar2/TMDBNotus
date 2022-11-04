@@ -12,16 +12,12 @@
           ACTORES
         </h3>
       </div>
-      <button mat-raised-button (click)="getPage(page - 1)">
-        <mat-icon aria-hidden="false" aria-label="Example thumbs up SVG icon"
-          >navigate_before</mat-icon
-        >
+      <button (click)="getPage(page - 1)">
+        <i class="fas fa-arrow-left"></i>
       </button>
-      <button mat-raised-button>{{ page }}</button>
-      <button mat-raised-button (click)="getPage(page + 1)">
-        <mat-icon aria-hidden="false" aria-label="Example thumbs up SVG icon"
-          >navigate_next</mat-icon
-        >
+      <button class="m-4">{{ page }}</button>
+      <button (click)="getPage(page + 1)">
+        <i class="fas fa-arrow-right"></i>
       </button>
     </div>
   </div>
