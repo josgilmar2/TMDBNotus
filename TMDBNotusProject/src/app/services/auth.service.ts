@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   getInfo(): Observable<UserResponse>{
-    return this.http.get<UserResponse>(`${environment.apiBaseUrl}/account?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id')}`);
+    return this.http.get<UserResponse>(`${environment.apiBaseUrl}/account?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id') }`);
   }
 
   deleteSession(

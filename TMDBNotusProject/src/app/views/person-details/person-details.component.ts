@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PersonDetailsResponse } from 'src/app/models/interfaces/person-details.interface';
 import { Person, KnownFor } from 'src/app/models/interfaces/person.interface';
 import { PersonService } from 'src/app/services/person.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-person-details',
@@ -27,5 +28,19 @@ export class PersonDetailsComponent implements OnInit {
    });
   }
 
+  getImg(p: PersonDetailsResponse) {
+    let id = p.profile_path;
+    return (`${environment.apiImgUrl}${id}`);
+  }
 
+  parseGender(gender: number){
+    if(gender == 1 ){
+      return 'Female'
+    }else if(gender == 2){
+      return 'Male'
+    }else{
+      return 'Other'
+    }
+      
+  }
 }

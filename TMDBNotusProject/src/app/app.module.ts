@@ -98,7 +98,7 @@ import { PersonDetailsComponent } from './views/person-details/person-details.co
     PersonListComponent,
     PersonDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, MaterialImportsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
