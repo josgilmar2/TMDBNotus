@@ -16,8 +16,13 @@
         </div>
       </div>
     </div>
-    <div>
-      <img [src]="showMoviesImg()" alt="" width="25%">
+    <div class="flex justify-between">
+      <div>
+        <img [src]="showMoviesImg()" alt="" width="25%">
+      </div>
+      <div class="self-end">
+        <a mat-button [routerLink]="['/movie-details', popularMovie.id]">DETAILS</a>
+      </div>
     </div>
   </div>
 </div>

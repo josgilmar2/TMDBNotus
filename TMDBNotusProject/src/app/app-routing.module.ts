@@ -22,6 +22,7 @@ import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 import { PersonDetailsComponent } from "./views/person-details/person-details.component";
+import { MoviesDetailsComponent } from "./views/movies-details/movies-details.component";
 
 const routes: Routes = [
   // admin views
@@ -52,6 +53,8 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "person-details/:id", component: PersonDetailsComponent },
   { path: "landing", component: LandingComponent },
+  // { path: "movie-details", component: MoviesDetailsComponent},
+  { path: "movie-details/:id", component: MoviesDetailsComponent},
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];

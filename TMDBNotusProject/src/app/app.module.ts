@@ -55,6 +55,7 @@ import { MaterialImportsModule } from "./modules/material-imports.module";
 import { OnePersonComponent } from './components/one-person/one-person.component';
 import { PersonListComponent } from './views/admin/person-list/person-list.component';
 import { PersonDetailsComponent } from './views/person-details/person-details.component';
+import { MoviesDetailsComponent } from './views/movies-details/movies-details.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { PersonDetailsComponent } from './views/person-details/person-details.co
     OnePersonComponent,
     PersonListComponent,
     PersonDetailsComponent,
+    MoviesDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
   providers: [],
