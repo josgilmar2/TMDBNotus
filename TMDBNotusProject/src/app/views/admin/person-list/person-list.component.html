@@ -16,7 +16,7 @@
         <i class="fas fa-solid fa-circle-chevron-left">Anterior</i>
       </button>
       <button type="button" class="m-4">
-        {{page}}
+        {{ page }}
       </button>
       <button (click)="getPage(page + 1)" type="button">
         <i class="fas fa-solid fa-circle-chevron-left">Siguiente</i>
@@ -32,7 +32,6 @@
           >navigate_next</mat-icon
         >
       </button> -->
-
     </div>
   </div>
   <div class="block w-full overflow-x-auto">
@@ -68,7 +67,7 @@
                 : 'bg-red-800 text-red-300 border-red-700'
             "
           >
-            Birthday
+            Popular Movies
           </th>
           <th
             class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -89,60 +88,63 @@
             "
           ></th>
         </tr>
-        </thead>
-        <tbody *ngFor="let item of personList">
-            <tr>
-                <th
-                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
-                >
-                  <img
-                    [src]="getImg(item)"
-                    class="h-12 w-12 bg-white rounded-full border"
-                    alt="..."
-                  />
-                  <span
-                    class="ml-3 font-bold"
-                    [ngClass]="color === 'light' ? 'text-blueGray-600' : 'text-white'"
-                  >
-                    {{ item.name }}
-                  </span>
-                </th>
-                <td
+      </thead>
+      <tbody *ngFor="let item of personList">
+        <tr>
+          <th
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
+          >
+            <img
+              [src]="getImg(item)"
+              class="h-12 w-12 bg-white rounded-full border"
+              alt="..."
+            />
+            <span
+              class="ml-3 font-bold"
+              [ngClass]="color === 'light' ? 'text-blueGray-600' : 'text-white'"
+            >
+              {{ item.name }}
+            </span>
+          </th>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >
+            {{ parseGender(item.gender) }}
+          </td>
+          <!-- <td 
                   class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                 >
-                  {{ item.gender }}
-                </td>
-                <td
-                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                >
-                  <i class="fas fa-circle text-orange-500 mr-2"></i> pending
-                </td>
-                <td
-                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                >
-                  <div class="flex items-center">
-                    <span class="mr-2">{{ item.popularity }}</span>
-                    <div class="relative w-full">
-                      <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
-                        <div
-                          style="width: 60%"
-                          class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td
-                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right"
-                >
-                  <a [routerLink]="['/person-details', item.id]">DETAILS</a>
-                </td>
-              </tr>
+                   <span *ngFor="let m of item.known_for">{{m.title}} |</span>
+                </td> -->
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >
+            <div class="flex" >
+              <img *ngFor="let m of item.known_for"
+                [src]="getMovieImg(m)"
+                alt="..."
+                class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
+              />
+            </div>
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >
+            <div class="flex items-center">
+              <span class="mr-2">{{ item.popularity }}</span>
+            </div>
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right"
+          >
+            <a [routerLink]="['/person-details', item.id]">DETAILS</a>
+          </td>
+        </tr>
         <!-- <app-one-item
           *ngFor="let item of itemList"
           [item]="item"
         ></app-one-item> -->
-        </tbody>
+      </tbody>
     </table>
   </div>
 </div>
