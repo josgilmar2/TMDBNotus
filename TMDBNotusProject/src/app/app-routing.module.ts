@@ -27,7 +27,7 @@ import { MoviesDetailsComponent } from "./views/movies-details/movies-details.co
 const routes: Routes = [
   // admin views
   {
-    path: "admin",
+    path: "public",
     component: AdminComponent,
     children: [
       { path: "dashboard", component: DashboardComponent },
@@ -35,8 +35,8 @@ const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
-      { path: "person-list", component: PersonListComponent },
-      { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      { path: "actors", component: PersonListComponent },
+      { path: "", redirectTo: "movies", pathMatch: "full" },
     ],
   },
   // auth views
@@ -51,11 +51,11 @@ const routes: Routes = [
   },
   // no layout views
   { path: "profile", component: ProfileComponent },
-  { path: "person-details/:id", component: PersonDetailsComponent },
+  { path: "actors-details/:id", component: PersonDetailsComponent },
   { path: "landing", component: LandingComponent },
   // { path: "movie-details", component: MoviesDetailsComponent},
   { path: "movie-details/:id", component: MoviesDetailsComponent},
-  { path: "", component: IndexComponent },
+  {path: '', redirectTo: '/public/movies', pathMatch: 'full'},
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 
