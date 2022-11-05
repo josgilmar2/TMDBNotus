@@ -56,6 +56,7 @@ import { OnePersonComponent } from './components/one-person/one-person.component
 import { PersonListComponent } from './views/admin/person-list/person-list.component';
 import { PersonDetailsComponent } from './views/person-details/person-details.component';
 import { MoviesDetailsComponent } from './views/movies-details/movies-details.component';
+import { FavoriteListComponent } from './views/admin/favorite-list/favorite-list.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { MoviesDetailsComponent } from './views/movies-details/movies-details.co
     PersonListComponent,
     PersonDetailsComponent,
     MoviesDetailsComponent,
+    FavoriteListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
   providers: [],
