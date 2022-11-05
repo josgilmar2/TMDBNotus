@@ -19,7 +19,7 @@ export class PersonListComponent implements OnInit {
   private _color = "light";
 
   personList: Person[] = [];
-  pelis: KnownFor[] = [];
+  movies: KnownFor[] = []
   pDetail: PersonDetailsResponse = {} as PersonDetailsResponse;
   page = 1;
 
@@ -44,5 +44,20 @@ export class PersonListComponent implements OnInit {
   getImg(p: Person) {
     let id = p.profile_path;
     return (`${environment.apiImgUrl}${id}`);
+  }
+
+  getMovieImg(m: KnownFor){
+    let id = m.poster_path;
+    return (`https://www.themoviedb.org/t/p/w220_and_h330_face/${m.poster_path}`)
+  }
+
+  parseGender(gender: number) {
+    if (gender == 1) {
+      return "Female";
+    } else if (gender == 2) {
+      return "Male";
+    } else {
+      return "Other";
+    }
   }
 }

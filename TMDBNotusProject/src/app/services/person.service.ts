@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Cast, MovieCreditsResponse } from '../models/interfaces/movie-credits.interface';
 import { PersonDetailsResponse } from '../models/interfaces/person-details.interface';
 import { Person, PersonResponse } from '../models/interfaces/person.interface';
 
@@ -20,6 +21,11 @@ export class PersonService {
   getDetails(id: string): Observable<PersonDetailsResponse> {
     return this.http.get<PersonDetailsResponse>(
       `${environment.apiBaseUrl}/person/${id}?api_key=${environment.apiKey}&language=en-US`
+    );
+  }
+
+  getMovieCredits(id: string): Observable<MovieCreditsResponse>{
+    return this.http.get<MovieCreditsResponse>(`${environment.apiBaseUrl}/person/${id}/movie_credits?api_key=${environment.apiKey}&language=en-US`
     );
   }
 

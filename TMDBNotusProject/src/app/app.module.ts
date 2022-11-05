@@ -54,6 +54,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialImportsModule } from "./modules/material-imports.module";
 import { OnePersonComponent } from './components/one-person/one-person.component';
 import { PersonListComponent } from './views/admin/person-list/person-list.component';
+import { PersonDetailsComponent } from './views/person-details/person-details.component';
 import { MoviesDetailsComponent } from './views/movies-details/movies-details.component';
 
 @NgModule({
@@ -96,9 +97,10 @@ import { MoviesDetailsComponent } from './views/movies-details/movies-details.co
     PopularMoviesListComponent,
     OnePersonComponent,
     PersonListComponent,
+    PersonDetailsComponent,
     MoviesDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, MaterialImportsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

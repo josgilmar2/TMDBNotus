@@ -15,6 +15,7 @@ export class UserDropdownComponent implements AfterViewInit {
   user = '';
   img = '';
   reqToken = '';
+  icon = 'https://cdn-icons-png.flaticon.com/512/74/74472.png';
   constructor(private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService){}
@@ -58,6 +59,7 @@ export class UserDropdownComponent implements AfterViewInit {
         if (resp.success) {
           localStorage.removeItem('session_id');
           this.approved = false;
+          window.location.href = 'http://localhost:4200/admin/person-list'
         }
       });
     }
