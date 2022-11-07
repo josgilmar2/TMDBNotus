@@ -33,8 +33,6 @@ export class ApprovedComponent implements OnInit {
           this.accountService.getDetails().subscribe((resp) => {
             localStorage.setItem('account_id', String(resp.id));
             console.log('Account id: ' + resp.id);
-            this.user = resp.username;
-            this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/${resp.avatar.tmdb.avatar_path}`;
             this.route.navigate(['/public/movies']);
           });
 
