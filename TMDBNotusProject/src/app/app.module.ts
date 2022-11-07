@@ -61,6 +61,7 @@ import { FormsModule } from "@angular/forms";
 import { RatedMoviesListComponent } from './views/admin/rated-movies-list/rated-movies-list.component';
 import { OneMovieRatedComponent } from './components/one-movie-rated/one-movie-rated.component';
 import { OneFavoriteMovieComponent } from './components/one-favorite-movie/one-favorite-movie.component';
+import { ApprovedComponent } from './views/admin/approved/approved.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { OneFavoriteMovieComponent } from './components/one-favorite-movie/one-f
     RatedMoviesListComponent,
     OneMovieRatedComponent,
     OneFavoriteMovieComponent,
+    ApprovedComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, FormsModule],
   providers: [],
