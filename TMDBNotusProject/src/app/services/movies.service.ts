@@ -34,16 +34,17 @@ export class MoviesService {
       `${environment.apiBaseUrl}/movie/${id}/videos?api_key=${environment.apiKey}&language=es-ES`
     );
   }
-
+  
   rateMovie(rateMovieDto: RateMoviDto, id: number): Observable<RateMovieResponse> {
     return this.http.post<RateMovieResponse>(
       `${environment.apiBaseUrl}/movie/${id}/rating?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id')}`, rateMovieDto
-    )
+    );
   }
 
   deleteRating(id :number): Observable<DeleteRatingResponse> {
     return this.http.delete<DeleteRatingResponse>(
       `${environment.apiBaseUrl}/movie/${id}/rating?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id')}`
-    )
+    );
   }
+  
 }

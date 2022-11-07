@@ -56,6 +56,7 @@ import { OnePersonComponent } from './components/one-person/one-person.component
 import { PersonListComponent } from './views/admin/person-list/person-list.component';
 import { PersonDetailsComponent } from './views/person-details/person-details.component';
 import { MoviesDetailsComponent } from './views/movies-details/movies-details.component';
+import { FavoriteListComponent } from './views/admin/favorite-list/favorite-list.component';
 import { FormsModule } from "@angular/forms";
 import { RatedMoviesListComponent } from './views/admin/rated-movies-list/rated-movies-list.component';
 import { OneMovieRatedComponent } from './components/one-movie-rated/one-movie-rated.component';
@@ -102,6 +103,7 @@ import { OneMovieRatedComponent } from './components/one-movie-rated/one-movie-r
     PersonListComponent,
     PersonDetailsComponent,
     MoviesDetailsComponent,
+    FavoriteListComponent,
     RatedMoviesListComponent,
     OneMovieRatedComponent,
   ],

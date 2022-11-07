@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { FavoriteMovieDto } from '../models/dto/favorite-movie.dto';
+import { FavoriteMoviesResponse } from '../models/interfaces/favorite-movies.interface';
 import { Cast, MovieCreditsResponse } from '../models/interfaces/movie-credits.interface';
 import { PersonDetailsResponse } from '../models/interfaces/person-details.interface';
 import { Person, PersonResponse } from '../models/interfaces/person.interface';
@@ -29,4 +31,14 @@ export class PersonService {
     );
   }
 
+  getFavoriteMovies(): Observable<FavoriteMoviesResponse>{
+    return this.http.get<FavoriteMoviesResponse>(`${environment.apiBaseUrl}/account/favorite/movies?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id') }`
+    );
+  }
+
+  markAsFavorite(favoriteDto: FavoriteMovieDto): Observable<FavoriteMoviesResponse>{
+    return this.http.post<FavoriteMoviesResponse>(`${environment.apiBaseUrl}/account/favorite/movies?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id') }`
+    , favoriteDto
+    );
+  }
 }
