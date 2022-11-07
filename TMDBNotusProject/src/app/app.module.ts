@@ -57,6 +57,9 @@ import { PersonListComponent } from './views/admin/person-list/person-list.compo
 import { PersonDetailsComponent } from './views/person-details/person-details.component';
 import { MoviesDetailsComponent } from './views/movies-details/movies-details.component';
 import { FavoriteListComponent } from './views/admin/favorite-list/favorite-list.component';
+import { FormsModule } from "@angular/forms";
+import { RatedMoviesListComponent } from './views/admin/rated-movies-list/rated-movies-list.component';
+import { OneMovieRatedComponent } from './components/one-movie-rated/one-movie-rated.component';
 
 @NgModule({
   declarations: [
@@ -101,8 +104,10 @@ import { FavoriteListComponent } from './views/admin/favorite-list/favorite-list
     PersonDetailsComponent,
     MoviesDetailsComponent,
     FavoriteListComponent,
+    RatedMoviesListComponent,
+    OneMovieRatedComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

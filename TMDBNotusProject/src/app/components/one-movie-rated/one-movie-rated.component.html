@@ -4,16 +4,16 @@
     <div class="flex flex-wrap">
       <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
         <h2 class="text-blueGray-400 uppercase font-bold text-xs">
-          {{popularMovie.original_title}}
+          {{ratedMovie.original_title}}
         </h2>
         <span class="font-semibold text-xl text-blueGray-700">
-          {{popularMovie.title}}
+          {{ratedMovie.title}}
         </span>
       </div>
       <div class="relative w-auto pl-4 flex-initial">
         <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full"
           style="background-color: #081C22;">
-          <span style="font-weight: bold;">{{popularMovie.vote_average * 10}}%</span>
+          <span style="font-weight: bold;">{{ratedMovie.vote_average * 10}}%</span>
         </div>
       </div>
     </div>
@@ -25,24 +25,24 @@
         <button *ngIf="session_id"><i class="far fa-heart" style="width: 50px;"></i></button>
       </div>
       <div class="self-end">
-        <div (click)="alreadyRated()">
-          <button *ngIf="session_id" (click)="showRatingNumber()">
-            <i class="far fa-star" style="width: 50px;"></i>
-          </button>
-        </div>
+        <button *ngIf="session_id" (click)="showRatingNumber()">
+          <i class="fas fa-star" style="width: 50px;"></i>
+        </button>
       </div>
       <div class="self-end">
-        <a [routerLink]="['/movie-details', popularMovie.id]" style="margin-left: 5px;">DETAILS</a>
+        <a [routerLink]="['/movie-details', ratedMovie.id]" style="margin-left: 5px;">DETAILS</a>
       </div>
     </div>
   </div>
 </div>
 <div *ngIf="showRating" class="mb-3 flex flex-row">
   <div>
-    <input type="number" name="" id="" min="1" max="10" [(ngModel)]="rating">
+    <input type="number" name="rating" id="rating" min="1" max="10" [(ngModel)]="rating">
   </div>
   <button (click)="showRatingNumber()" class="ml-3 bg-red-500 p-3 text-white"
     style="border-radius: 4px;"><span>Cancelar</span></button>
   <button (click)="sendRating()" class="ml-3 text-white p-3"
-    style="background-color: green; border-radius: 4px;"><span>Enviar valoración</span></button>
+    style="background-color: green; border-radius: 4px;"><span>Enviar nueva valoración</span></button>
+  <button (click)="deleteRating()" class="ml-3 bg-red-500 p-3 text-white" style="border-radius: 4px;"><span>Eliminar
+      Valoración</span></button>
 </div>
