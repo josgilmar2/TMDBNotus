@@ -7,8 +7,6 @@ import { DeleteSessionDto } from '../models/dto/detete-sesison.dto';
 import { CreateSessionResponse } from '../models/interfaces/create-session.interface';
 import { DeleteSessionResponse } from '../models/interfaces/delete-session.interface';
 import { RequestTokenResponse } from '../models/interfaces/request-token.interface';
-import { UserResponse } from '../models/interfaces/user-details.interface';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -28,10 +26,6 @@ export class AuthService {
       `${environment.apiBaseUrl}/authentication/session/new?api_key=${environment.apiKey}`,
       sessionDto
     );
-  }
-
-  getInfo(): Observable<UserResponse>{
-    return this.http.get<UserResponse>(`${environment.apiBaseUrl}/account?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id') }`);
   }
 
   deleteSession(

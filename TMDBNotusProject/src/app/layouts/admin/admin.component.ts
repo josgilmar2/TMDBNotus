@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { createPopper } from "@popperjs/core";
-import { CreateSessionDto } from "src/app/models/dto/create-session.dto";
 import { DeleteSessionDto } from "src/app/models/dto/detete-sesison.dto";
+import { AccountService } from "src/app/services/account.service";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -19,41 +19,24 @@ export class AdminComponent implements OnInit {
   collapseShow = "hidden";
 
   constructor(private route: ActivatedRoute,
-    private authService: AuthService) { }
+    private authService: AuthService, private accountService: AccountService) { }
 
   @ViewChild("btnDropdownRef", { static: false }) btnDropdownRef: ElementRef;
   @ViewChild("popoverDropdownRef", { static: false })
   popoverDropdownRef: ElementRef;
 
   ngOnInit() {
-    this.route.queryParams.subscribe((qParams) => {
-      const ap = qParams['approved'];
-      const rToken = qParams['request_token'];
-      this.approved = ap == 'true' ? true : false;
 
-      if (this.approved) {
-        let session = new CreateSessionDto();
-        session.request_token = rToken;
-        this.authService.createSession(session).subscribe((resp) => {
-          localStorage.setItem('session_id', resp.session_id);
-          console.log('Session id: ' + resp.session_id);
+    if (localStorage.getItem('session_id') != null) {
+      this.accountService.getDetails().subscribe((resp) => {
+        localStorage.setItem('account_id', String(resp.id));
+        console.log('Account id: ' + resp.id);
+        this.user = resp.username;
+        this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/${resp.avatar.tmdb.avatar_path}`;
+        this.approved = true;
+      });
+    }
 
-          this.authService.getInfo().subscribe((resp) => {
-            localStorage.setItem('account_id', String(resp.id));
-            console.log('Account id: ' + resp.id);
-            this.user = resp.username;
-            this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/${resp.avatar.tmdb.avatar_path}`;
-            //this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/q1f7PKhmaA1dhbnj9gHoE05ImB9.jpg`
-
-          });
-
-        });
-      } else {
-        if (localStorage.getItem('session_id') != null) {
-          this.approved = true;
-        }
-      }
-    });
   }
 
   cerrarSession() {
@@ -73,7 +56,7 @@ export class AdminComponent implements OnInit {
   requestToken() {
     this.authService.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/public/movies`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/approved`;
     });
   }
   ngAfterViewInit() {

@@ -25,6 +25,7 @@ import { PersonDetailsComponent } from "./views/person-details/person-details.co
 import { MoviesDetailsComponent } from "./views/movies-details/movies-details.component";
 import { RatedMoviesListComponent } from "./views/admin/rated-movies-list/rated-movies-list.component";
 import { FavoriteListComponent } from "./views/admin/favorite-list/favorite-list.component";
+import { ApprovedComponent } from "./views/admin/approved/approved.component";
 
 const routes: Routes = [
   // admin views
@@ -57,8 +58,8 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "actors-details/:id", component: PersonDetailsComponent },
   { path: "landing", component: LandingComponent },
-  // { path: "movie-details", component: MoviesDetailsComponent},
   { path: "movie-details/:id", component: MoviesDetailsComponent},
+  { path: "approved", component: ApprovedComponent },
   {path: '', redirectTo: '/public/movies', pathMatch: 'full'},
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];

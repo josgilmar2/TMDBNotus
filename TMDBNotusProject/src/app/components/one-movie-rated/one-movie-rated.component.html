@@ -22,9 +22,6 @@
         <img [src]="showMoviesImg()" alt="" width="25%">
       </div>
       <div class="self-end">
-        <button *ngIf="session_id"><i class="far fa-heart" style="width: 50px;"></i></button>
-      </div>
-      <div class="self-end">
         <button *ngIf="session_id" (click)="showRatingNumber()">
           <i class="fas fa-star" style="width: 50px;"></i>
         </button>

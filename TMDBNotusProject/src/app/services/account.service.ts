@@ -6,6 +6,7 @@ import { FavoriteMovieDto } from '../models/dto/favorite-movie.dto';
 import { CreateFavMoviesResponse } from '../models/interfaces/create-fav-movies.interface';
 import { FavoriteMoviesResponse } from '../models/interfaces/favorite-movies.interface';
 import { RatedMoviesResponse } from '../models/interfaces/rated-movies.interface';
+import { UserResponse } from '../models/interfaces/user-details.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ import { RatedMoviesResponse } from '../models/interfaces/rated-movies.interface
 export class AccountService {
 
   constructor(private http: HttpClient) { }
+
+  getDetails(): Observable<UserResponse>{
+    return this.http.get<UserResponse>(`${environment.apiBaseUrl}/account?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id') }`);
+  }
 
   getRatedMovies(pages: number): Observable<RatedMoviesResponse> {
     return this.http.get<RatedMoviesResponse>(

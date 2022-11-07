@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Cast, MovieCreditsResponse } from "src/app/models/interfaces/movie-credits.interface";
+import { Cast } from "src/app/models/interfaces/movie-credits.interface";
 import { PersonDetailsResponse } from "src/app/models/interfaces/person-details.interface";
-import { Person, KnownFor } from "src/app/models/interfaces/person.interface";
 import { PersonService } from "src/app/services/person.service";
 import { environment } from "src/environments/environment";
 
