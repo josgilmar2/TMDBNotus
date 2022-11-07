@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FavoriteMovieDto } from 'src/app/models/dto/favorite-movie.dto';
 import { RateMoviDto } from 'src/app/models/dto/rate-movie.dto';
 import { PopularMovies } from 'src/app/models/interfaces/popular-movies.interface';
+import { AccountService } from 'src/app/services/account.service';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class OneMovieComponent implements OnInit {
   rating: number = 0;
   movieRated = false;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private accountService: AccountService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('session_id') !== null) {
@@ -50,6 +52,18 @@ export class OneMovieComponent implements OnInit {
       this.showRating = false;
       alert('Esta peli ya ha sido valorada. Si quieres cambiar o eliminar la valoración ve a la página MY RATED MOVIES');
     }
+  }
+
+  marcarFavorito(){
+    let favMovies = new FavoriteMovieDto();
+    favMovies.media_type = 'movie';
+    favMovies.media_id = this.popularMovie.id;
+    favMovies.favorite = true;
+    this.accountService.markAsFavorite(favMovies).subscribe((resp) =>{
+      if(resp.success){
+        alert('Tu pelicula se ha agregado a favoritos')
+      }
+    })
   }
 
 }

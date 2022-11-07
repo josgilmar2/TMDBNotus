@@ -7,29 +7,35 @@ import {
   FavoriteMoviesResponse,
   Favorites,
 } from "src/app/models/interfaces/favorite-movies.interface";
+import { AccountService } from "src/app/services/account.service";
 
 @Component({
   selector: "app-favorite-list",
   templateUrl: "./favorite-list.component.html",
 })
 export class FavoriteListComponent implements OnInit {
-  listaFav: FavoriteMoviesResponse[] = [];
   favMovies: Favorites[] = [];
   isFav: boolean = false;
+  page = 0;
 
   constructor(
     private personService: PersonService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private accountService: AccountService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getPage(1);
+  }
 
-  marcarFavorita() {
-    let favMovie = new FavoriteMovieDto();
-    this.personService.markAsFavorite(favMovie).subscribe((resp) =>{
-      
-    });
+  getPage(pagee: number) {
+    if(pagee > 0){
+      this.accountService.getFavoriteMovies(pagee).subscribe((resp) =>{
+        this.favMovies = resp.results;
+      })
+      this.page = pagee;
+    }
   }
 }
