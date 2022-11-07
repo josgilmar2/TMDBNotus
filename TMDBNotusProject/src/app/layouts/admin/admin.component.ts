@@ -39,9 +39,11 @@ export class AdminComponent implements OnInit {
           console.log('Session id: ' + resp.session_id);
 
           this.authService.getInfo().subscribe((resp) => {
+            localStorage.setItem('account_id', String(resp.id));
+            console.log('Account id: ' + resp.id);
             this.user = resp.username;
-            // this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/${resp.avatar.tmdb.avatar_path}`;
-            this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/q1f7PKhmaA1dhbnj9gHoE05ImB9.jpg`
+            this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/${resp.avatar.tmdb.avatar_path}`;
+            //this.img = `https://www.themoviedb.org/t/p/w32_and_h32_face/q1f7PKhmaA1dhbnj9gHoE05ImB9.jpg`
 
           });
 
