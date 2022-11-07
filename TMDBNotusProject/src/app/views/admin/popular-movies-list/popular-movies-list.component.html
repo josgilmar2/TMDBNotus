@@ -10,14 +10,16 @@
 <app-one-movie *ngFor="let movie of popularMoviesList" [popularMovie]="movie" [pages]="actualPage"></app-one-movie> -->
 
 <div class="flex justify-center mt-2">
-  <button (click)="pageBefore()" style="height: 24px;">
-    <i class="fas fa-arrow-left"></i>
-  </button>
-  <span style="margin-left: 10px; margin-right: 10px;">{{actualPage}} | {{numTotalPages}}</span>
-  <button (click)="pageAfter()" style="height: 24px;">
-    <i class="fas fa-arrow-right"></i>
-  </button>
+  <div>
+    <button (click)="pageBefore()" style="height: 24px;">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <span style="margin-left: 10px; margin-right: 10px;">{{actualPage}} | {{numTotalPages}}</span>
+    <button (click)="pageAfter()" style="height: 24px;">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
 </div>
-<div class="flex flex-wrap justify-around mt-1">
+<div class="flex flex-wrap justify-around mt-2">
   <app-one-movie *ngFor="let movie of popularMoviesList" [popularMovie]="movie" [pages]="actualPage"></app-one-movie>
 </div>
