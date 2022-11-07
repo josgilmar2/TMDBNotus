@@ -4,40 +4,40 @@
     <div class="flex flex-wrap">
       <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
         <h2 class="text-blueGray-400 uppercase font-bold text-xs">
-          {{popularMovie.original_title}}
+          {{favMovie.original_title}}
         </h2>
         <span class="font-semibold text-xl text-blueGray-700">
-          {{popularMovie.title}}
+          {{favMovie.title}}
         </span>
       </div>
       <div class="relative w-auto pl-4 flex-initial">
         <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full"
           style="background-color: #081C22;">
-          <span style="font-weight: bold;">{{popularMovie.vote_average * 10}}%</span>
+          <span style="font-weight: bold;">{{favMovie.vote_average * 10}}%</span>
         </div>
       </div>
     </div>
     <div class="flex justify-around">
       <div>
-        <img [src]="showMoviesImg()" alt="" width="25%">
+        <img [src]="getImg()" alt="" width="25%">
       </div>
       <div class="self-end">
-        <button *ngIf="session_id" (click)="marcarFavorito()"><i class="far fa-heart" style="width: 50px;"></i></button>
+        <button *ngIf="session_id" (click)="deleteFav()"><i class="fas fa-heart" style="width: 50px;"></i></button>
       </div>
-      <div class="self-end">
+      <!-- <div class="self-end">
         <div (click)="alreadyRated()">
           <button *ngIf="session_id" (click)="showRatingNumber()">
             <i class="far fa-star" style="width: 50px;"></i>
           </button>
         </div>
-      </div>
+      </div> -->
       <div class="self-end">
-        <a [routerLink]="['/movie-details', popularMovie.id]" style="margin-left: 5px;">DETAILS</a>
+        <a [routerLink]="['/movie-details', favMovie.id]" style="margin-left: 5px;">DETAILS</a>
       </div>
     </div>
   </div>
 </div>
-<div *ngIf="showRating" class="mb-3 flex flex-row">
+<!-- <div *ngIf="showRating" class="mb-3 flex flex-row">
   <div>
     <input type="number" name="" id="" min="1" max="10" [(ngModel)]="rating">
   </div>
@@ -45,4 +45,4 @@
     style="border-radius: 4px;"><span>Cancelar</span></button>
   <button (click)="sendRating()" class="ml-3 text-white p-3"
     style="background-color: green; border-radius: 4px;"><span>Enviar valoración</span></button>
-</div>
+</div> -->

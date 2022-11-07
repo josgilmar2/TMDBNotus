@@ -1,1 +1,14 @@
-<p>favorite-list works!</p>
+
+  <div class="flex justify-center mt-2">
+    <button (click)="getPage(page - 1)">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <button class="m-4">{{ page }}</button>
+      <button (click)="getPage(page + 1)">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+  </div>
+  <div class="flex flex-wrap justify-around mt-1">
+    <app-one-favorite-movie *ngFor="let fav of favMovies" [favMovie]="fav" [page]="page"></app-one-favorite-movie>
+  </div>
+  

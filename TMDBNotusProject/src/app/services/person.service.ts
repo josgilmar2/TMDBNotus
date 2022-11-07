@@ -30,15 +30,4 @@ export class PersonService {
     return this.http.get<MovieCreditsResponse>(`${environment.apiBaseUrl}/person/${id}/movie_credits?api_key=${environment.apiKey}&language=en-US`
     );
   }
-
-  getFavoriteMovies(): Observable<FavoriteMoviesResponse>{
-    return this.http.get<FavoriteMoviesResponse>(`${environment.apiBaseUrl}/account/favorite/movies?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id') }`
-    );
-  }
-
-  markAsFavorite(favoriteDto: FavoriteMovieDto): Observable<FavoriteMoviesResponse>{
-    return this.http.post<FavoriteMoviesResponse>(`${environment.apiBaseUrl}/account/favorite/movies?api_key=${environment.apiKey}&session_id=${localStorage.getItem('session_id') }`
-    , favoriteDto
-    );
-  }
 }

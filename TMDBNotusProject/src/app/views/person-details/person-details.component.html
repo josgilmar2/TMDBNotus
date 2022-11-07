@@ -98,6 +98,7 @@
                 <div style="margin: 10px; width: 300px; " *ngFor="let m of movieList">
                   <span class="text-lg font-bold m-4">{{m.title}}</span>
                   <img [src]="getMovieImg(m)" alt="...">
+                  <a [routerLink]="['/movie-details', m.id]">DETAILS</a>
                 </div>
             </div>
           </div>
