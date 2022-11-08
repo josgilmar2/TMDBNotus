@@ -48,7 +48,7 @@ export class AdminComponent implements OnInit {
         if (resp.success) {
           localStorage.removeItem('session_id');
           this.approved = false;
-          this.route.navigate(['/public/movies']);
+          window.location.href = `${environment.urlBase}/public/movies`;
         }
       });
     }
