@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 import { createPopper } from "@popperjs/core";
 import { DeleteSessionDto } from "src/app/models/dto/detete-sesison.dto";
 import { AccountService } from "src/app/services/account.service";
 import { AuthService } from "src/app/services/auth.service";
+import { environment } from "src/environments/environment.prod";
 
 @Component({
   selector: "app-admin",
@@ -18,7 +19,7 @@ export class AdminComponent implements OnInit {
   icon = 'https://cdn-icons-png.flaticon.com/512/74/74472.png';
   collapseShow = "hidden";
 
-  constructor(private route: ActivatedRoute,
+  constructor(private route: Router,
     private authService: AuthService, private accountService: AccountService) { }
 
   @ViewChild("btnDropdownRef", { static: false }) btnDropdownRef: ElementRef;
@@ -47,7 +48,7 @@ export class AdminComponent implements OnInit {
         if (resp.success) {
           localStorage.removeItem('session_id');
           this.approved = false;
-          window.location.href = 'http://localhost:4200/public/movies'
+          this.route.navigate(['/public/movies']);
         }
       });
     }
@@ -56,7 +57,7 @@ export class AdminComponent implements OnInit {
   requestToken() {
     this.authService.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/approved`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=${environment.urlFirebase}/approved`;
     });
   }
   ngAfterViewInit() {
