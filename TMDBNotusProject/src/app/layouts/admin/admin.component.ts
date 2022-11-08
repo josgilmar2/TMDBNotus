@@ -57,7 +57,7 @@ export class AdminComponent implements OnInit {
   requestToken() {
     this.authService.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=${environment.urlFirebase}/approved`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=${environment.urlBase}/approved`;
     });
   }
   ngAfterViewInit() {
